@@ -94,6 +94,16 @@ tar -xz                        \
 echo "Downloading PostgreSQL JDBC driver ..."
 curl -L "https://jdbc.postgresql.org/download/postgresql-9.4-1201.jdbc41.jar" > "$DESTINATION/postgresql/postgresql-9.4-1201.jdbc41.jar"
 
+
+#
+# Download PostgreSQL JDBC driver
+#
+
+echo "Downloading JWT driver ..."
+mkdir -p "$DESTINATION/jwt"
+curl -L "https://github.com/aiden0z/guacamole-auth-jwt/releases/download/0.9.14/guacamole-auth-jwt-0.9.14.jar" > "$DESTINATION/jwt/guacamole-auth-jwt-0.9.14.jar"
+
+
 #
 # Copy LDAP auth extension and schema modifications
 #
