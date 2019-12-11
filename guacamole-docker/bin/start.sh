@@ -423,6 +423,12 @@ if [ -n "$LDAP_HOSTNAME" ]; then
     INSTALLED_AUTH="$INSTALLED_AUTH ldap"
 fi
 
+if [ -n "$JWT_SECRET_KEY" ]; then
+    ln -s /opt/guacamole/jwt/guacamole-auth-jwt-*.jar "$GUACAMOLE_EXT"
+    set_property "secret-key" "$JWT_SECRET_KEY"
+    INSTALLED_AUTH="$INSTALLED_AUTH jwt"
+fi
+
 #
 # Validate that at least one authentication backend is installed
 #
