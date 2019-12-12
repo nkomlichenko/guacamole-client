@@ -101,7 +101,7 @@ curl -L "https://jdbc.postgresql.org/download/postgresql-9.4-1201.jdbc41.jar" > 
 echo "Downloading JWT driver ..."
 mkdir -p "$DESTINATION/jwt"
 curl -L "https://github.com/aiden0z/guacamole-auth-jwt/releases/download/0.9.14/guacamole-auth-jwt-0.9.14.jar" > "$DESTINATION/jwt/guacamole-auth-jwt-0.9.14.jar"
-curl -L "https://repo1.maven.org/maven2/io/jsonwebtoken/jjwt/0.9.0/jjwt-0.9.0.jar" > "$DESTINATION/jwt/jjwt-0.9.0.jar"
+curl -L "https://repo1.maven.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.jar" > "$DESTINATION/jwt/jjwt-0.7.0.jar"
 
 
 #

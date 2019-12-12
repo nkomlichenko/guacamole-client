@@ -3,7 +3,7 @@ import requests
 from datetime import datetime, timedelta
 
 payload = {
-    'GUAC_ID': 'connection_id',
+    'GUAC_ID': '10001',
     'guac.hostname': '109.168.97.222',
     'guac.protocol': "rdp",
     'guac.port': '3389',
