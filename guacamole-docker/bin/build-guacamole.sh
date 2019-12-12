@@ -53,7 +53,7 @@ mkdir -p "$DESTINATION"
 #
 
 cd "$BUILD_DIR"
-mvn package
+mvn package 
 
 #
 # Copy guacamole.war to destination
