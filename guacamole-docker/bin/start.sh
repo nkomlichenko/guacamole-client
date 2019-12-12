@@ -425,6 +425,7 @@ fi
 
 if [ -n "$JWT_SECRET_KEY" ]; then
     ln -s /opt/guacamole/jwt/guacamole-auth-jwt-*.jar "$GUACAMOLE_EXT"
+    ln -s /opt/guacamole/jwt/jjwt-*.jar "$GUACAMOLE_LIB"
     set_property "secret-key" "$JWT_SECRET_KEY"
     INSTALLED_AUTH="$INSTALLED_AUTH jwt"
 fi
