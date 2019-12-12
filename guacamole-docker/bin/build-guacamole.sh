@@ -53,7 +53,7 @@ mkdir -p "$DESTINATION"
 #
 
 cd "$BUILD_DIR"
-mvn package 
+mvn -Drat.skip=true package 
 
 #
 # Copy guacamole.war to destination
@@ -99,9 +99,15 @@ curl -L "https://jdbc.postgresql.org/download/postgresql-9.4-1201.jdbc41.jar" > 
 #
 
 echo "Downloading JWT driver ..."
-mkdir -p "$DESTINATION/jwt"
+mkdir -p "$DESTINATION/jwt/lib"
 curl -L "https://github.com/aiden0z/guacamole-auth-jwt/releases/download/0.9.14/guacamole-auth-jwt-0.9.14.jar" > "$DESTINATION/jwt/guacamole-auth-jwt-0.9.14.jar"
-curl -L "https://repo1.maven.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.jar" > "$DESTINATION/jwt/jjwt-0.7.0.jar"
+curl -L "https://repo1.maven.org/maven2/io/jsonwebtoken/jjwt/0.7.0/jjwt-0.7.0.jar" > "$DESTINATION/jwt/lib/jjwt-0.7.0.jar"
+curl -L "http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-databind/2.9.9.3/jackson-databind-2.9.9.3.jar" > "$DESTINATION/jwt/lib/jackson-databind-2.9.9.3.jar"
+curl -L "http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-core/2.9.9/jackson-core-2.9.9.jar" > "$DESTINATION/jwt/lib/jackson-core-2.9.9.jar"
+curl -L "http://repo1.maven.org/maven2/com/fasterxml/jackson/core/jackson-annotations/2.9.9/jackson-annotations-2.9.9.jar" > "$DESTINATION/jwt/lib/jackson-annotations-2.9.9.jar"
+
+
+#curl -L "https://github.com/google/guice/releases/download/4.2.2/guice-4.2.2.jar" > "$DESTINATION/jwt/guice-4.2.2.jar"
 
 
 #

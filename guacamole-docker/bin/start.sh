@@ -425,9 +425,26 @@ fi
 
 if [ -n "$JWT_SECRET_KEY" ]; then
     ln -s /opt/guacamole/jwt/guacamole-auth-jwt-*.jar "$GUACAMOLE_EXT"
-    ln -s /opt/guacamole/jwt/jjwt-*.jar "$GUACAMOLE_LIB"
+    ln -s /opt/guacamole/jwt/lib/*.jar "$GUACAMOLE_LIB"
     set_property "secret-key" "$JWT_SECRET_KEY"
     INSTALLED_AUTH="$INSTALLED_AUTH jwt"
+    cat >> $GUACAMOLE_HOME/logback.xml <<END
+<configuration>
+
+    <!-- Appender for debugging -->
+    <appender name="GUAC-DEBUG" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Log at DEBUG level -->
+    <root level="debug">
+        <appender-ref ref="GUAC-DEBUG"/>
+    </root>
+
+</configuration>
+END
 fi
 
 #
